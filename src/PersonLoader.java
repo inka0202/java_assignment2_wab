@@ -15,13 +15,20 @@ public class PersonLoader {
             fileIn.close();
 
             System.out.println("File '"+ fileName + "' has been loaded successfully");
+
         } catch (FileNotFoundException e) {
-            System.out.println("Error File Not Found: " + e.getMessage());
+            System.out.println("File not found: " + fileName);
+
         }catch (IOException e){
-            System.out.println("Error while loading persons: " + e.getMessage());
+            System.out.println("I/O error while reading the file: " + e.getMessage());
+
         }catch (ClassNotFoundException e){
-            System.out.println("Class Not Found while loading persons");
+            System.out.println("Class Not Found while loading persons" + e.getMessage());
+
+        }catch (ClassCastException e) {
+            System.out.println("Data in the file cannot be cast to List<Person>");
         }
+
         return persons;
     }
 
