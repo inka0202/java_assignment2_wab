@@ -1,4 +1,5 @@
-abstract class Person {
+import java.io.Serializable;
+abstract class Person implements Serializable{
     protected String name;
     protected int age;
 
